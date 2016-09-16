@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW2CardGame", "HW2CardGame\HW2CardGame.csproj", "{F576813B-E553-4174-82A4-EA6438FDDB19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F576813B-E553-4174-82A4-EA6438FDDB19}.Debug|x86.ActiveCfg = Debug|x86
+		{F576813B-E553-4174-82A4-EA6438FDDB19}.Debug|x86.Build.0 = Debug|x86
+		{F576813B-E553-4174-82A4-EA6438FDDB19}.Release|x86.ActiveCfg = Release|x86
+		{F576813B-E553-4174-82A4-EA6438FDDB19}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+EndGlobal
