@@ -6,15 +6,73 @@ namespace HW2CardGame
 	{
 		public static void Main(string[] args)
 		{
-			/*
-			//Card TestCard = new Card();
-			//Generates Random rank objects
-			Rank testRank = new Rank();
-			Console.WriteLine(testRank.ToString());
+			/**
+			 * Populate Rank and Suits for BlackJack
+			 * This sets the values for the game
+			 * -----------Rank
+			 * */
+			for (int i = 0; i < 13; i++)
+			{
+				if (i < 9)
+				{
+					Rank.VALUES.Add(new Rank(i, i + 2));
+				}
+				else if (i < 12)
+				{
+					Rank.VALUES.Add(new Rank(i, 10));
+				}
+				else if (i == 12)
+				{
+					Rank.VALUES.Add(new Rank(i, 11));
+				}
+			}
+			//---------Suits
+			for (int i = 0; i < 4; i++)
+			{
+				Suit.VALUES.Add(new Suit(i, 0));
+			}
+
+			//random card used for testing
+			//Card testCard = new Card();
+
+			//blackJack card
+			Card aCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
+			Console.WriteLine(aCard);
+			Console.WriteLine(aCard.GetRank());
+			Console.WriteLine(aCard.GetSuit());
+			Console.ReadLine();
+
+			Card bCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
+			Console.WriteLine(bCard);
+			Console.WriteLine(bCard.GetRank());
+			Console.WriteLine(bCard.GetSuit());
+			Console.ReadLine();
+
+			Card cCard = new Card(Suit.VALUES[2], Rank.VALUES[5]);//7
+			Console.WriteLine(cCard);
+			Console.WriteLine(cCard.GetRank());
+			Console.WriteLine(cCard.GetSuit());
+			Console.ReadLine();
+
+			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, bCard, aCard.CompareTo(bCard));//should return 0
+			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, cCard, aCard.CompareTo(cCard)); //should return 1
+			Console.WriteLine("Comparing {0} and {1}: ---> {2}", cCard, bCard, cCard.CompareTo(bCard)); //should return -1
+			Console.ReadLine();
+		}
+	}
+}
+
+///////////////////////////////////////////////
+/// 	SAVED CODE PARTS FOR BLACKJACK
+///////////////////////////////////////////////
+/*
+//Generates Random rank objects
+Rank testRank = new Rank();
+Console.WriteLine(testRank.ToString());
 			Rank testRank2 = new Rank();
-			Console.WriteLine(testRank2.ToString());
+Console.WriteLine(testRank2.ToString());
 			Rank testRank3 = new Rank();
-			Console.WriteLine(testRank3.ToString());
+Console.WriteLine(testRank3.ToString());
 			*/
 
 			//Generates specified rank
@@ -23,7 +81,7 @@ namespace HW2CardGame
 			Rank.VALUES.Add(new Rank(9));
 			Rank.VALUES.Add(new Rank(12));
 			Rank.VALUES.Add(new Rank(0));
-			*/
+			*//*
 			//SAVE THIS FOR BLACKJACK
 			Console.WriteLine("Populating List<Rank> Values with Rank for BlackJack");
 			for (int i = 0; i < 13; i++)
@@ -41,7 +99,7 @@ namespace HW2CardGame
 					Rank.VALUES.Add(new Rank(i, 11));
 				}
 			}
-			/*
+			/* //For BlackJack ToString
 			foreach (Rank c in Rank.VALUES)
 			{
 				if (c.GetValue() == 11)
@@ -52,7 +110,7 @@ namespace HW2CardGame
 				{//Default ToString
 					Console.WriteLine(c);
 				}
-			}*/
+			}*//*
 
 
 			Console.ReadLine();
@@ -79,8 +137,4 @@ namespace HW2CardGame
 			{
 				Console.WriteLine(c);
 			}
-
-			Console.ReadLine();
-		}
-	}
-}
+			*/

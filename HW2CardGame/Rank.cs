@@ -7,7 +7,7 @@ namespace HW2CardGame
 	public class Rank
 	{
 		public enum cardRank
-		{ TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }
+		{ TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }	
 
 		public static List<Rank> VALUES = new List<Rank>();
 		static Random rRandom = new Random();
@@ -28,18 +28,18 @@ namespace HW2CardGame
 			//			works great
 			rName = myRank.ToString();
 			//stores the value of the index from the enum
-			//rValue = GetValue();
+			//			rValue = GetValue();
 			rValue = (int)myRank;
-			rSymbol = GetSymbol();
+			rSymbol = InitSymbol();
 		}
 
 		//second test to delete soon
-		public Rank(int fill)
+		public Rank(int eNumCode)
 		{
-			myRank = ((cardRank)fill);
+			myRank = ((cardRank)eNumCode);
 			rName = myRank.ToString();
 			rValue = (int)myRank;
-			rSymbol = GetSymbol();
+			rSymbol = InitSymbol();
 		}
 
 		public Rank(int eNumCode, int rankVal)
@@ -52,7 +52,8 @@ namespace HW2CardGame
 
 		public override string ToString()
 		{
-			return "RankName: " + GetName() + ", RankValue: " + GetValue() + ", RankSymbol: " + GetSymbol() ;
+			return GetName();
+			//return "RankName: " + GetName() + ", RankValue: " + GetValue() + ", RankSymbol: " + GetSymbol() ;
 		}
 
 		public string GetName()

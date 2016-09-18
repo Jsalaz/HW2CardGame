@@ -10,17 +10,36 @@ namespace HW2CardGame
 		{ CLUBS, DIAMONDS, HEARTS, SPADES }
 
 		public SuitType mySuit;
+		static Random sRandom = new Random();
 
 		public string sName;
 		public string sSymbol;
 		public int sValue;
-		public Suit(int suitIndex, int suitVal)
+
+		public Suit()//random suit for a card with default suit rank C>D>H>S
+		{
+			mySuit = ((SuitType)(sRandom.Next() % 4));
+			sName = mySuit.ToString();
+			sValue = (int)mySuit;
+			sSymbol = InitSymbol();
+		}
+
+		public Suit(int suitIndex)//specific suit with default suit rank C>D>H>S
+		{
+			mySuit = ((SuitType)suitIndex);
+			sName = mySuit.ToString();
+			sValue = (int)mySuit;
+			sSymbol = InitSymbol();
+		}
+
+		public Suit(int suitIndex, int suitVal)//specific Suit and Rank Value
 		{
 			mySuit = ((SuitType)suitIndex);
 			sName = mySuit.ToString();
 			sValue = suitVal;
 			sSymbol = InitSymbol();
 		}
+
 		public string GetName()
 		{
 			return sName;
@@ -31,27 +50,27 @@ namespace HW2CardGame
 			return sValue;
 		}
 		/*symbol unicodes
-		* Heart = '\u2661'
-		* Spade = '\u2664'
-		* Club = '\u2667'
-		* Diamond = '\u2662'
-		* */
+		 * Club = '\u2667'
+		 * Diamond = '\u2662'
+		 * Heart = '\u2661'
+		 * Spade = '\u2664'
+		 * */
 		public string InitSymbol()
 		{
-			char ch;
+			string ch;
 			switch ((int)mySuit)
 			{
 				case 0:
-					ch = ('\u2667');
+					ch = ("\u2667");
 					return ch + "C";
 				case 1:
-					ch = ('\u2662');
+					ch = ("\u2662");
 					return ch + "D";
 				case 2:
-					ch = ('\u2661');
+					ch = ("\u2661");
 					return ch + "H";
 				case 3:
-					ch = ('\u2664');
+					ch = ("\u2664");
 					return ch + "S";
 				default:
 					return "nill";
@@ -75,7 +94,8 @@ namespace HW2CardGame
 
 		public override string ToString()
 		{
-			return "SuitName: " + GetName() + " SuitSymbol: " + GetSymbol() + " SuitRank: " + GetValue();
+			return GetName();
+			//return "SuitName: " + GetName() + ", SuitSymbol: " + GetSymbol() + ", SuitRank: " + GetValue();
 		}
 	}
 }
