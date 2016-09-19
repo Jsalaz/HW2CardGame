@@ -48,18 +48,12 @@ namespace HW2CardGame
 			{
 				suitComp = this.CardSuit.CompareTo(OtherCardObject.CardSuit);
 				if (rankComp == suitComp)
-				{
-					return 0;
-				}
+				{ return 0; }
 				else
-				{
-					return suitComp;
-				}
+				{ return suitComp; }
 			}
 			else 
-			{
-				return rankComp;
-			}
+			{ return rankComp; }
 		}
 	}
 }

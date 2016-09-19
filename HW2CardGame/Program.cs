@@ -15,7 +15,7 @@ namespace HW2CardGame
 			{
 				if (i < 9)
 				{
-					Rank.VALUES.Add(new Rank(i, i + 2));
+					Rank.VALUES.Add(new Rank(i, i+2));
 				}
 				else if (i < 12)
 				{
@@ -31,32 +31,53 @@ namespace HW2CardGame
 			{
 				Suit.VALUES.Add(new Suit(i, 0));
 			}
+			/// <summary>
+			/// Creates an instance of Deck Object
+			/// and Populates it with the necesary cards only 13 for our test.
+			/// </summary>
+			Deck BlackJack = new Deck();
+			//deckBuilder
+			foreach (Rank r in Rank.VALUES)
+			{
+				foreach (Suit s in Suit.VALUES)
+				{
+					Card Test = new Card(s, r);
+					BlackJack.AddCard(Test);
+					//Console.WriteLine(Test);
+				}
+			}
 
-			//random card used for testing
-			//Card testCard = new Card();
+			Console.WriteLine("---Shuffled Cards---");
+			BlackJack.Shuffle();
+			BlackJack.Shuffle();
+			BlackJack.Shuffle();
+			foreach (Card s in BlackJack.DeckOfCards)
+			{
+				Console.WriteLine(s);
+			}
 
-			//blackJack card
-			Card aCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
-			Console.WriteLine(aCard);
-			Console.WriteLine(aCard.GetRank());
-			Console.WriteLine(aCard.GetSuit());
 			Console.ReadLine();
 
-			Card bCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
-			Console.WriteLine(bCard);
-			Console.WriteLine(bCard.GetRank());
-			Console.WriteLine(bCard.GetSuit());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+
+			Console.WriteLine("Cards Left: {0}, DeckSize: {1}, Is it Empty: {2}", BlackJack.GetCardsRemaining(), 
+			                  BlackJack.GetDeckSize(), BlackJack.IsEmpty());
+
+			BlackJack.RestoreDeck();
+			Console.WriteLine("Cards Left: {0}, DeckSize: {1}, Is it Empty: {2}", BlackJack.GetCardsRemaining(),
+							  BlackJack.GetDeckSize(), BlackJack.IsEmpty());
 			Console.ReadLine();
 
-			Card cCard = new Card(Suit.VALUES[2], Rank.VALUES[5]);//7
-			Console.WriteLine(cCard);
-			Console.WriteLine(cCard.GetRank());
-			Console.WriteLine(cCard.GetSuit());
-			Console.ReadLine();
+			foreach (Card s in BlackJack.DeckOfCards)
+			{
+				Console.WriteLine(s);
+			}
 
-			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, bCard, aCard.CompareTo(bCard));//should return 0
-			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, cCard, aCard.CompareTo(cCard)); //should return 1
-			Console.WriteLine("Comparing {0} and {1}: ---> {2}", cCard, bCard, cCard.CompareTo(bCard)); //should return -1
 			Console.ReadLine();
 		}
 	}
@@ -138,3 +159,31 @@ Console.WriteLine(testRank3.ToString());
 				Console.WriteLine(c);
 			}
 			*/
+
+/*
+			//random card used for testing
+			//Card testCard = new Card();
+
+			//blackJack card
+			Card aCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
+			Console.WriteLine(aCard);
+			Console.WriteLine(aCard.GetRank());
+			Console.WriteLine(aCard.GetSuit());
+			Console.ReadLine();
+
+			Card bCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
+			Console.WriteLine(bCard);
+			Console.WriteLine(bCard.GetRank());
+			Console.WriteLine(bCard.GetSuit());
+			Console.ReadLine();
+
+			Card cCard = new Card(Suit.VALUES[2], Rank.VALUES[5]);//7
+			Console.WriteLine(cCard);
+			Console.WriteLine(cCard.GetRank());
+			Console.WriteLine(cCard.GetSuit());
+			Console.ReadLine();
+
+			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, bCard, aCard.CompareTo(bCard));//should return 0
+			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, cCard, aCard.CompareTo(cCard)); //should return 1
+			Console.WriteLine("Comparing {0} and {1}: ---> {2}", cCard, bCard, cCard.CompareTo(bCard)); //should return -1
+			Console.ReadLine();*/

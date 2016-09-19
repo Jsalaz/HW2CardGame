@@ -5,43 +5,40 @@ namespace HW2CardGame
 {
 	public class Deck
 	{
+		private int _topOfDeck;
 		private int _deckSize;
-//		private int _cardsInPlay;
+		static Random shuffler = new Random();
 
-		//holds the random number that will select the card on top.
-//		int top;
-
-		List<Card> DeckCards = new List<Card>();
+		public List<Card> DeckOfCards = new List<Card>();
+		public List<Card> NotInDeck = new List<Card>();
 
 		public Deck()
 		{
-			this._deckSize = 52;
+			DeckOfCards = new List<Card>();
+			_topOfDeck = -1;
+			_deckSize = 0;
 		}
 
-		public Deck(int deckSize)
+		public void AddCard(Card aCard)
 		{
-			this._deckSize = deckSize;
-			for (int i = 0; i < _deckSize; i++)
-			{
-				
-			}
+			DeckOfCards.Add(aCard);
+			_topOfDeck++;	
+			_deckSize++;
 		}
 
-		public void AddCar(Card aCard)
+		public Card DealOne()
 		{
-			DeckCards.Add(aCard);
-		}
-
-/*		public Card DealOne()
-		{
-			DeckCards.RemoveAt(top);
+			Card topCard = DeckOfCards[_topOfDeck];
+			NotInDeck.Add(topCard);
+			DeckOfCards.RemoveAt(_topOfDeck--);
+			return topCard;
 		}
 
 		public int GetCardsRemaining()
 		{
-			return _deckSize - _cardsInPlay;
+			return _topOfDeck+1;
 		}
-*/
+
 		public int GetDeckSize()
 		{
 			return _deckSize;
@@ -49,21 +46,41 @@ namespace HW2CardGame
 
 		public bool IsEmpty()
 		{
-			if (_deckSize == 0)
+			if (_topOfDeck == -1)
 			{ return true; }
-			else 
-			{ return false; }
+			return false;
 		}
 
 		public void Shuffle()
 		{
-			
+			//Fisher-Yates Shuffle Algorithm
+			for (int i = 0; i < _topOfDeck; i++)
+			{
+				int randCardIndex = (int)(shuffler.Next(i, _topOfDeck));// % (_topOfDeck - i));
+				Card cardHolder = DeckOfCards[randCardIndex];
+				DeckOfCards[randCardIndex] = DeckOfCards[i];
+				DeckOfCards[i] = cardHolder;
+			}
 		}
 
 		public void RestoreDeck()
 		{
-//			DeckCards.Add();
+			foreach (Card s in NotInDeck)
+			{
+				//adds cards from NotInDeck back to Deck
+				DeckOfCards.Add(s);
+				_topOfDeck++;
+			}
+			NotInDeck.Clear();
 		}
 
+		public override string ToString()
+		{
+			foreach (Card s in DeckOfCards)
+			{
+				Console.WriteLine(s);
+			}
+			return "";
+		}
 	}
 }
