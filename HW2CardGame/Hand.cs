@@ -97,7 +97,7 @@ namespace HW2CardGame
 			string tempCard = "";
 			foreach (Card s in myHand)
 			{
-				tempCard = tempCard + s.ToString() + " \n";
+				tempCard = tempCard + s + " \n";
 			}
 			return tempCard;
 		}
