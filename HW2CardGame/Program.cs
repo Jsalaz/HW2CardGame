@@ -8,16 +8,18 @@ namespace HW2CardGame
 		{
 			//Rank loadRank = new Rank();
 			//Suit loadSuit = new Suit();
-
+			/*
 			for (int i = 2; i < 15; i++)
 			{
 				Rank.VALUES.Add(new Rank(i));
 			}
+			*/
 			for (int i = 0; i < 4; i++)
 			{
 				Suit.VALUES.Add(new Suit(i));
 			}
 
+			//Rank.cardRank.ACE;
 
 			/// <summary>
 			/// Creates an instance of Deck Object

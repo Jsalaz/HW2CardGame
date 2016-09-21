@@ -5,15 +5,15 @@ namespace HW2CardGame
 {
 	public abstract class Hand
 	{
-		private int _handSize;
+		//private int _handSize;
 		//private int _currentSize;
 		public List<Card> myHand;
 
 		/*
-		public Hand(int handSize)
+		protected Hand()
 		{
 			myHand = new List<Card>();
-			_handSize = handSize;
+			//_handSize = handSize;//deleted (int handSize) in constructor
 			//_currentSize = -1;
 		}
 		*/

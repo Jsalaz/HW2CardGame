@@ -7,7 +7,9 @@ namespace HW2CardGame
 	public class Rank
 	{
 		public enum cardRank
-		{ TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }	
+		{ TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE };
+
+		//static public int DOS, TRES, CUATRO, CINCO, SEIS, SIETE, OCHO, NUEVE, DIES, SOTA, REINA, REY;
 
 		public static List<Rank> VALUES = new List<Rank>();
 		static Random rRandom = new Random();
@@ -18,7 +20,7 @@ namespace HW2CardGame
 
 		private cardRank myRank;
 		//first Test with Random value to delete soon
-		/*public Rank()
+		public Rank()
 		{
 			//Creates an Enum based on a random number mod 13
 			//			works
@@ -30,9 +32,10 @@ namespace HW2CardGame
 			//			rValue = GetValue();
 			rValue = (int)myRank	;
 			rSymbol = InitSymbol();
-		}*/
+		}
 		//alternative method loads values of 13 cards possible delete
-		public Rank()
+		//bam static constructor
+		static Rank()
 		{
 			for (int i = 2; i < 15; i++)
 			{
@@ -40,7 +43,7 @@ namespace HW2CardGame
 			}
 		}
 
-		//second test to delete soon
+		//second working code
 		public Rank(int eNumCode)
 		{
 			myRank = ((cardRank)eNumCode);
