@@ -6,11 +6,111 @@ namespace HW2CardGame
 	{
 		public static void Main(string[] args)
 		{
-			/**
+			//Rank loadRank = new Rank();
+			//Suit loadSuit = new Suit();
+
+			for (int i = 2; i < 15; i++)
+			{
+				Rank.VALUES.Add(new Rank(i));
+			}
+			for (int i = 0; i < 4; i++)
+			{
+				Suit.VALUES.Add(new Suit(i));
+			}
+
+
+			/// <summary>
+			/// Creates an instance of Deck Object
+			/// and Populates it with the necesary cards only 13 for our test.
+			/// </summary>
+			Deck BlackJack = new Deck();
+			//deckBuilder
+			foreach (Rank r in Rank.VALUES)
+			{
+
+				Card Test = new Card(Suit.VALUES[0], r);
+				BlackJack.AddCard(Test);
+				Console.WriteLine(Test);
+				/*foreach (Suit s in Suit.VALUES) //creates all cards in deck
+				{
+					Card Test = new Card(s, r);
+					BlackJack.AddCard(Test);
+					//Console.WriteLine(Test);
+				}*/
+			}
+
+			Console.WriteLine("---Shuffled Cards---");
+			BlackJack.Shuffle();
+			foreach (Card s in BlackJack.DeckOfCards)
+			{
+				Console.WriteLine(s);
+			}
+
+			Console.ReadLine();
+
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
+
+
+			Console.WriteLine("Cards Left: {0}, DeckSize: {1}, Is it Empty: {2}", BlackJack.GetCardsRemaining(), 
+			                  BlackJack.GetDeckSize(), BlackJack.IsEmpty());
+
+			BlackJack.RestoreDeck();
+
+			Console.WriteLine("Cards Left: {0}, DeckSize: {1}, Is it Empty: {2}", BlackJack.GetCardsRemaining(),
+							  BlackJack.GetDeckSize(), BlackJack.IsEmpty());
+			
+			Console.ReadLine();
+			/*
+			// instantiate some cards
+			Card c1 = new Card(Suit.VALUES[2], Rank.VALUES[0]); //2 hearts
+			Card c2 = new Card(Suit.VALUES[2], Rank.VALUES[0]); //k heart
+			Card c3 = new Card(Suit.VALUES[0], Rank.VALUES[2]); //4 clubs
+			Card c4 = new Card(Suit.VALUES[0], Rank.VALUES[9]); //J clubs
+			Card c5 = new Card(Suit.VALUES[1], Rank.VALUES[12]);//A diamonds
+			Card c6 = new Card(Suit.VALUES[1], Rank.VALUES[11]);//K diamonds
+
+			// Testing comparison
+			Console.WriteLine("Comparing {0}, to {1}:------> {2}", c1, c2, c1.CompareTo(c2));
+			Console.WriteLine("Comparing {0}, to {1}:------> {2}", c1, c3, c1.CompareTo(c3));
+			Console.WriteLine("Comparing {0}, to {1}:------> {2}", c3, c1, c3.CompareTo(c1));
+			Console.WriteLine("Comparing {0}, to {1}:------> {2}", c1, c4, c1.CompareTo(c4));
+			Console.WriteLine("Comparing {0}, to {1}:------> {2}", c4, c5, c4.CompareTo(c5));
+			Console.WriteLine("Comparing {0}, to {1}:------> {2}", c6, c4, c6.CompareTo(c4));
+			Console.WriteLine("Comparing {0}, to {1}:------> {2}", c4, c6, c4.CompareTo(c6));
+			*/
+
+			foreach (Card s in BlackJack.DeckOfCards)
+			{
+				Console.WriteLine(s);
+			}
+
+			Console.ReadLine();
+		}
+	}
+}
+
+///////////////////////////////////////////////
+/// 	SAVED CODE PARTS FOR BLACKJACK
+///////////////////////////////////////////////
+/*
+/**
 			 * Populate Rank and Suits for BlackJack
 			 * This sets the values for the game
 			 * -----------Rank
 			 * */
+/*
 			for (int i = 0; i < 13; i++)
 			{
 				if (i < 9)
@@ -31,108 +131,7 @@ namespace HW2CardGame
 			{
 				Suit.VALUES.Add(new Suit(i, 0));
 			}
-			/// <summary>
-			/// Creates an instance of Deck Object
-			/// and Populates it with the necesary cards only 13 for our test.
-			/// </summary>
-			Deck BlackJack = new Deck();
-			//deckBuilder
-			foreach (Rank r in Rank.VALUES)
-			{
-				foreach (Suit s in Suit.VALUES)
-				{
-					Card Test = new Card(s, r);
-					BlackJack.AddCard(Test);
-					//Console.WriteLine(Test);
-				}
-			}
-
-			Console.WriteLine("---Shuffled Cards---");
-			BlackJack.Shuffle();
-			BlackJack.Shuffle();
-			BlackJack.Shuffle();
-			foreach (Card s in BlackJack.DeckOfCards)
-			{
-				Console.WriteLine(s);
-			}
-
-			Console.ReadLine();
-
-			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
-			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
-			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
-			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
-			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
-			Console.WriteLine("Picked up {0} from the Deck. ", BlackJack.DealOne());
-
-			Console.WriteLine("Cards Left: {0}, DeckSize: {1}, Is it Empty: {2}", BlackJack.GetCardsRemaining(), 
-			                  BlackJack.GetDeckSize(), BlackJack.IsEmpty());
-
-			BlackJack.RestoreDeck();
-			Console.WriteLine("Cards Left: {0}, DeckSize: {1}, Is it Empty: {2}", BlackJack.GetCardsRemaining(),
-							  BlackJack.GetDeckSize(), BlackJack.IsEmpty());
-			Console.ReadLine();
-
-			foreach (Card s in BlackJack.DeckOfCards)
-			{
-				Console.WriteLine(s);
-			}
-
-			Console.ReadLine();
-		}
-	}
-}
-
-///////////////////////////////////////////////
-/// 	SAVED CODE PARTS FOR BLACKJACK
-///////////////////////////////////////////////
-/*
-//Generates Random rank objects
-Rank testRank = new Rank();
-Console.WriteLine(testRank.ToString());
-			Rank testRank2 = new Rank();
-Console.WriteLine(testRank2.ToString());
-			Rank testRank3 = new Rank();
-Console.WriteLine(testRank3.ToString());
-			*/
-
-			//Generates specified rank
-			//Creating BlackJack Rank
-			/*
-			Rank.VALUES.Add(new Rank(9));
-			Rank.VALUES.Add(new Rank(12));
-			Rank.VALUES.Add(new Rank(0));
 			*//*
-			//SAVE THIS FOR BLACKJACK
-			Console.WriteLine("Populating List<Rank> Values with Rank for BlackJack");
-			for (int i = 0; i < 13; i++)
-			{
-				if (i < 9)
-				{
-					Rank.VALUES.Add(new Rank(i, i+2));
-				}
-				else if (i < 12)
-				{
-					Rank.VALUES.Add(new Rank(i, 10));
-				}
-				else if (i == 12)
-				{
-					Rank.VALUES.Add(new Rank(i, 11));
-				}
-			}
-			/* //For BlackJack ToString
-			foreach (Rank c in Rank.VALUES)
-			{
-				if (c.GetValue() == 11)
-				{//modified ToString for ACE
-					Console.WriteLine("RankName: " + c.GetName() + ", RankValue: 1 and " + c.GetValue() + ", RankSymbol: " + c.GetSymbol());
-				}
-				else
-				{//Default ToString
-					Console.WriteLine(c);
-				}
-			}*//*
-
 
 			Console.ReadLine();
 
@@ -159,31 +158,3 @@ Console.WriteLine(testRank3.ToString());
 				Console.WriteLine(c);
 			}
 			*/
-
-/*
-			//random card used for testing
-			//Card testCard = new Card();
-
-			//blackJack card
-			Card aCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
-			Console.WriteLine(aCard);
-			Console.WriteLine(aCard.GetRank());
-			Console.WriteLine(aCard.GetSuit());
-			Console.ReadLine();
-
-			Card bCard = new Card(Suit.VALUES[3], Rank.VALUES[12]);
-			Console.WriteLine(bCard);
-			Console.WriteLine(bCard.GetRank());
-			Console.WriteLine(bCard.GetSuit());
-			Console.ReadLine();
-
-			Card cCard = new Card(Suit.VALUES[2], Rank.VALUES[5]);//7
-			Console.WriteLine(cCard);
-			Console.WriteLine(cCard.GetRank());
-			Console.WriteLine(cCard.GetSuit());
-			Console.ReadLine();
-
-			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, bCard, aCard.CompareTo(bCard));//should return 0
-			Console.WriteLine("Comparing {0} and {1}: ---> {2}", aCard, cCard, aCard.CompareTo(cCard)); //should return 1
-			Console.WriteLine("Comparing {0} and {1}: ---> {2}", cCard, bCard, cCard.CompareTo(bCard)); //should return -1
-			Console.ReadLine();*/

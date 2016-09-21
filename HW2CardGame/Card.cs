@@ -7,15 +7,6 @@ namespace HW2CardGame
 		private Rank CardRank;
 		private Suit CardSuit;
 
-		//string tString;
-
-		//Creates Random Cards used for my testing
-		public Card()
-		{
-			CardRank = new Rank();
-			CardSuit = new Suit();
-		}
-
 		//Creates a Card with given Rank and Suit Attributes
 		public Card(Suit aSuit, Rank aRank)
 		{
@@ -25,12 +16,12 @@ namespace HW2CardGame
 
 		public Rank GetRank()
 		{
-			return this.CardRank;
+			return CardRank;
 		}
 
 		public Suit GetSuit()
 		{
-			return this.CardSuit;
+			return CardSuit;
 		}
 
 		public override string ToString()
@@ -41,12 +32,12 @@ namespace HW2CardGame
 
 		public int CompareTo(Card OtherCardObject)
 		{
-			int rankComp = this.CardRank.CompareTo(OtherCardObject.CardRank);
+			int rankComp = CardRank.CompareTo(OtherCardObject.CardRank);//gets 0 if cards have the same rank
 			int suitComp;
 
 			if (rankComp == 0)
 			{
-				suitComp = this.CardSuit.CompareTo(OtherCardObject.CardSuit);
+				suitComp = CardSuit.CompareTo(OtherCardObject.CardSuit);
 				if (rankComp == suitComp)
 				{ return 0; }
 				else

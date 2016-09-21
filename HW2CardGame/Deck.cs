@@ -46,7 +46,7 @@ namespace HW2CardGame
 
 		public bool IsEmpty()
 		{
-			if (_topOfDeck == -1)
+			if (DeckOfCards.Count == 0)
 			{ return true; }
 			return false;
 		}
@@ -54,9 +54,9 @@ namespace HW2CardGame
 		public void Shuffle()
 		{
 			//Fisher-Yates Shuffle Algorithm
-			for (int i = 0; i < _topOfDeck; i++)
+			for (int i = 0; i < _topOfDeck+1; i++)
 			{
-				int randCardIndex = (int)(shuffler.Next(i, _topOfDeck));// % (_topOfDeck - i));
+				int randCardIndex = (int)(shuffler.Next(i, _topOfDeck+1));// % (_topOfDeck - i));
 				Card cardHolder = DeckOfCards[randCardIndex];
 				DeckOfCards[randCardIndex] = DeckOfCards[i];
 				DeckOfCards[i] = cardHolder;

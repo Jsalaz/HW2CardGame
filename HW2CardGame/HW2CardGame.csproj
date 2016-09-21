@@ -41,6 +41,7 @@
     <Compile Include="Suit.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="Deck.cs" />
+    <Compile Include="Hand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

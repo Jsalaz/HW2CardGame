@@ -7,7 +7,7 @@ namespace HW2CardGame
 	public class Rank
 	{
 		public enum cardRank
-		{ TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }	
+		{ TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }	
 
 		public static List<Rank> VALUES = new List<Rank>();
 		static Random rRandom = new Random();
@@ -17,9 +17,8 @@ namespace HW2CardGame
 		private string rName;
 
 		private cardRank myRank;
-
 		//first Test with Random value to delete soon
-		public Rank()
+		/*public Rank()
 		{
 			//Creates an Enum based on a random number mod 13
 			//			works
@@ -29,8 +28,16 @@ namespace HW2CardGame
 			rName = myRank.ToString();
 			//stores the value of the index from the enum
 			//			rValue = GetValue();
-			rValue = (int)myRank;
+			rValue = (int)myRank	;
 			rSymbol = InitSymbol();
+		}*/
+		//alternative method loads values of 13 cards possible delete
+		public Rank()
+		{
+			for (int i = 2; i < 15; i++)
+			{
+				VALUES.Add(new Rank(i));
+			}
 		}
 
 		//second test to delete soon
@@ -42,6 +49,7 @@ namespace HW2CardGame
 			rSymbol = InitSymbol();
 		}
 
+		//Third constructor assigns predifined values
 		public Rank(int eNumCode, int rankVal)
 		{
 			myRank = ((cardRank)eNumCode);
@@ -61,12 +69,6 @@ namespace HW2CardGame
 			return rName;
 		}
 
-		//According to Specifications GetValue is not needed
-		public int GetValue()
-		{
-			return rValue;
-		}
-
 		public string GetSymbol()
 		{
 			//Console.WriteLine(GetValue());
@@ -76,35 +78,52 @@ namespace HW2CardGame
 
 		public string InitSymbol()
 		{
-			if ((int)myRank >= 0 && (int)myRank < 9)
+			if ((int)myRank >= 2 && (int)myRank < 11)
 			{
-				return ((int)myRank + 2).ToString();
+				return ((int)myRank).ToString();
 			}
 
 			switch ((int)myRank)
 			{
-				case 9:
-					return "J";
-				case 10:
-					return "Q";
 				case 11:
-					return "K";
+					return "J";
 				case 12:
+					return "Q";
+				case 13:
+					return "K";
+				case 14:
 					return "A";
 				default: //Error Checking in rank
 					return "nill";
 			}
 		}
 
+		//According to Specifications GetValue is not needed
+		//currently serves no use.
+		public int GetValue()
+		{
+			return rValue;
+		}
+
+		/*
 		public int CompareTo(Rank OtherRankObject)
 		{
-			if (this.GetValue() == OtherRankObject.GetValue())
+			if (GetValue() == OtherRankObject.GetValue())
 			{ return 0; }
-			    else if (this.GetValue() > OtherRankObject.GetValue())
+			    else if (GetValue() > OtherRankObject.GetValue())
 			{ return 1; }
 			else
 			{ return -1;}
-		}
+		}*/
 
+		public int CompareTo(Rank OtherRankObject)
+		{
+			if (VALUES.IndexOf(this) == VALUES.IndexOf(OtherRankObject))
+			{ return 0; }
+			else if (VALUES.IndexOf(this) > VALUES.IndexOf(OtherRankObject))
+			{ return 1; }
+			else
+			{ return -1; }
+		}
 	}
 }

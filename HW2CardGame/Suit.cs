@@ -15,13 +15,21 @@ namespace HW2CardGame
 		public string sName;
 		public string sSymbol;
 		public int sValue;
-
+		/*
 		public Suit()//random suit for a card with default suit rank C>D>H>S
 		{
 			mySuit = ((SuitType)(sRandom.Next() % 4));
 			sName = mySuit.ToString();
 			sValue = (int)mySuit;
 			sSymbol = InitSymbol();
+		}*/
+
+		public Suit()
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				VALUES.Add(new Suit(i));
+			}
 		}
 
 		public Suit(int suitIndex)//specific suit with default suit rank C>D>H>S
@@ -82,11 +90,23 @@ namespace HW2CardGame
 			return sSymbol;
 		}
 
+		/*
 		public int CompareTo(Suit OtherSuitObject)
 		{
-			if (this.sValue == OtherSuitObject.sValue)
+			if (sValue == OtherSuitObject.sValue)
 			{ return 0; }
-			else if (this.sValue > OtherSuitObject.sValue)
+			else if (sValue > OtherSuitObject.sValue)
+			{ return 1; }
+			else
+			{ return -1; }
+		}
+		*/
+
+		public int CompareTo(Suit OtherSuitObject)
+		{
+			if (VALUES.IndexOf(this) == VALUES.IndexOf(OtherSuitObject))
+			{ return 0; }
+			else if (VALUES.IndexOf(this) > VALUES.IndexOf(OtherSuitObject))
 			{ return 1; }
 			else
 			{ return -1; }
