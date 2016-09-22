@@ -12,29 +12,14 @@ namespace HW2CardGame
 		//static public int DOS, TRES, CUATRO, CINCO, SEIS, SIETE, OCHO, NUEVE, DIES, SOTA, REINA, REY;
 
 		public static List<Rank> VALUES = new List<Rank>();
-		static Random rRandom = new Random();
-
 		private int rValue;
 		private string rSymbol;
 		private string rName;
 
 		private cardRank myRank;
-		//first Test with Random value to delete soon
-		public Rank()
-		{
-			//Creates an Enum based on a random number mod 13
-			//			works
-			myRank = ((cardRank)(rRandom.Next() % 13));
-			//stores the name of the String Enum to rName
-			//			works great
-			rName = myRank.ToString();
-			//stores the value of the index from the enum
-			//			rValue = GetValue();
-			rValue = (int)myRank	;
-			rSymbol = InitSymbol();
-		}
+
 		//alternative method loads values of 13 cards possible delete
-		//bam static constructor
+		//bam!! static constructor
 		static Rank()
 		{
 			for (int i = 2; i < 15; i++)
@@ -74,8 +59,6 @@ namespace HW2CardGame
 
 		public string GetSymbol()
 		{
-			//Console.WriteLine(GetValue());
-			//Console.WriteLine(rValue);
 			return rSymbol;
 		}
 
@@ -130,3 +113,18 @@ namespace HW2CardGame
 		}
 	}
 }
+/*//first Test with Random value to delete soon
+public Rank()
+{
+	//Creates an Enum based on a random number mod 13
+	//			works
+	myRank = ((cardRank)(rRandom.Next() % 13));
+	//stores the name of the String Enum to rName
+	//			works great
+	rName = myRank.ToString();
+	//stores the value of the index from the enum
+	//			rValue = GetValue();
+	rValue = (int)myRank	;
+	rSymbol = InitSymbol();
+}
+*/

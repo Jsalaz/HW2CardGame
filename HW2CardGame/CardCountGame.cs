@@ -25,29 +25,25 @@ namespace HW2CardGame
 				player2.AddCard(CardCountDeck.DealOne());
 			}
 
-			Console.WriteLine("Player 1's Cards:\n" + player1);
+			Console.WriteLine("---Welcome to CardCout!!---");
+			Console.WriteLine("-Dealing Cards-");
+			Console.WriteLine("Player 1's Cards:\n{0}", player1);
 			Console.WriteLine("Player 2's Cards:\n" + player2);
+			Console.WriteLine("Player 1's score: {0} || Player 2's score: {1}", player1.EvaluateHand(), player2.EvaluateHand());
+			Console.WriteLine("There are {0} left in the deck of {1} cards", CardCountDeck.GetCardsRemaining(), CardCountDeck.GetDeckSize());
+			if (player1.EvaluateHand() > player2.EvaluateHand())
+			{ Console.WriteLine("Player 1 Wins!!"); }
+			else if (player1.EvaluateHand() < player2.EvaluateHand())
+			{ Console.WriteLine("Player 2 Wins!!"); }
+			else
+			{ Console.WriteLine("Tied Game"); }
+				
 			Console.ReadLine();
+
 		}
 
 		public void PopulateDeck()
 		{
-			//sets rank
-			for (int i = 2; i < 15; i++)
-			{
-				if (i < 11)
-				{ Rank.VALUES.Add(new Rank(i, i)); }
-				else if (i > 10 && i < 14)
-				{ Rank.VALUES.Add(new Rank(i, 10)); }
-				else
-				{ Rank.VALUES.Add(new Rank(i, 1)); }
-			}
-			//sets suit
-			for (int i = 0; i < 4; i++)
-			{
-				Suit.VALUES.Add(new Suit(i));
-			}
-
 			//populates deck
 			foreach (Rank r in Rank.VALUES)
 			{

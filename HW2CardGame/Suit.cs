@@ -10,21 +10,12 @@ namespace HW2CardGame
 		{ CLUBS, DIAMONDS, HEARTS, SPADES }
 
 		public SuitType mySuit;
-		static Random sRandom = new Random();
 
 		public string sName;
 		public string sSymbol;
 		public int sValue;
-		/*
-		public Suit()//random suit for a card with default suit rank C>D>H>S
-		{
-			mySuit = ((SuitType)(sRandom.Next() % 4));
-			sName = mySuit.ToString();
-			sValue = (int)mySuit;
-			sSymbol = InitSymbol();
-		}*/
 
-		public Suit()
+		static Suit()
 		{
 			for (int i = 0; i < 4; i++)
 			{
@@ -36,7 +27,7 @@ namespace HW2CardGame
 		{
 			mySuit = ((SuitType)suitIndex);
 			sName = mySuit.ToString();
-			sValue = (int)mySuit;
+		//	sValue = (int)mySuit;
 			sSymbol = InitSymbol();
 		}
 
@@ -53,10 +44,6 @@ namespace HW2CardGame
 			return sName;
 		}
 
-		public int GetValue()
-		{
-			return sValue;
-		}
 		/*symbol unicodes
 		 * Club = '\u2667'
 		 * Diamond = '\u2662'
@@ -90,18 +77,6 @@ namespace HW2CardGame
 			return sSymbol;
 		}
 
-		/*
-		public int CompareTo(Suit OtherSuitObject)
-		{
-			if (sValue == OtherSuitObject.sValue)
-			{ return 0; }
-			else if (sValue > OtherSuitObject.sValue)
-			{ return 1; }
-			else
-			{ return -1; }
-		}
-		*/
-
 		public int CompareTo(Suit OtherSuitObject)
 		{
 			if (VALUES.IndexOf(this) == VALUES.IndexOf(OtherSuitObject))
@@ -112,6 +87,11 @@ namespace HW2CardGame
 			{ return -1; }
 		}
 
+		public int GetValue()
+		{
+			return sValue;
+		}
+
 		public override string ToString()
 		{
 			return GetName();
@@ -119,3 +99,12 @@ namespace HW2CardGame
 		}
 	}
 }
+
+		/*
+		public Suit()//random suit for a card with default suit rank C>D>H>S
+		{
+			mySuit = ((SuitType)(sRandom.Next() % 4));
+			sName = mySuit.ToString();
+			sValue = (int)mySuit;
+			sSymbol = InitSymbol();
+		}*/
