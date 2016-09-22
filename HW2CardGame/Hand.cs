@@ -29,7 +29,7 @@ namespace HW2CardGame
 		public abstract int CompareTo(Hand OtherHandObject);
 
 		//3 True is a card is found in hand
-		bool ContainsCard(Card trialCard)
+		public bool ContainsCard(Card trialCard)
 		{
 			foreach (Card handCard in myHand)
 			{
@@ -40,39 +40,39 @@ namespace HW2CardGame
 		}
 
 		//4
-		void DiscardHand()
+		public void DiscardHand()
 		{
 			myHand.Clear(); //hand is cleared
 			//_currentSize = -1;
 		}
 
 		//5 should work allongside ContainsCard... check if the card is there... then check the index of the card
-		int FindCard(Card trialCard)
+		public int FindCard(Card trialCard)
 		{
 			return myHand.IndexOf(trialCard);
 		}
 
 		//6
-		Card GetCardAtIndex(int index)
+		public Card GetCardAtIndex(int index)
 		{
 			Card aCard = myHand[index];
 			return aCard;
 		}
 
 		//7
-		int GetNumberOfCards()
+		public int GetNumberOfCards()
 		{
 			return myHand.Count;
 		}
 
 		//8
-		bool IsEmpty()
+		public bool IsEmpty()
 		{
 			return myHand.Count == 0;
 		}
 
 		//9 removes specific card from hand. Should work with 3, 5 and 6. Check if card is in hand, fetch the index of the card, and the remove it
-		Card RemoveCard(Card trialCard)
+		public Card RemoveCard(Card trialCard)
 		{
 			int index = FindCard(trialCard);
 			Card holder = GetCardAtIndex(index);
@@ -81,7 +81,7 @@ namespace HW2CardGame
 		}
 
 		//10 removes card at specified index
-		Card RemoveCard(int index)
+		public Card RemoveCard(int index)
 		{
 			Card holder = myHand[index];
 			myHand.RemoveAt(index);

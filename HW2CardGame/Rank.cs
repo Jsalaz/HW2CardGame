@@ -33,11 +33,11 @@ namespace HW2CardGame
 		{
 			myRank = ((cardRank)eNumCode);
 			rName = myRank.ToString();
-			rValue = (int)myRank;
+			//rValue = (int)myRank;
 			rSymbol = InitSymbol();
 		}
 
-		//Third constructor assigns predifined values
+		//Third constructor assigns predifined values just incase a game needs to define values.
 		public Rank(int eNumCode, int rankVal)
 		{
 			myRank = ((cardRank)eNumCode);
@@ -90,17 +90,6 @@ namespace HW2CardGame
 		{
 			return rValue;
 		}
-
-		/*
-		public int CompareTo(Rank OtherRankObject)
-		{
-			if (GetValue() == OtherRankObject.GetValue())
-			{ return 0; }
-			    else if (GetValue() > OtherRankObject.GetValue())
-			{ return 1; }
-			else
-			{ return -1;}
-		}*/
 
 		public int CompareTo(Rank OtherRankObject)
 		{

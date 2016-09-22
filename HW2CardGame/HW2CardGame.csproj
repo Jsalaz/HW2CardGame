@@ -45,6 +45,7 @@
     <Compile Include="CardCountHand.cs" />
     <Compile Include="BlackJackHand.cs" />
     <Compile Include="CardCountGame.cs" />
+    <Compile Include="BlackJackGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

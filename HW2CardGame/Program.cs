@@ -8,6 +8,9 @@ namespace HW2CardGame
 		{
 			CardCountGame CCGame = new CardCountGame();
 			CCGame.CardCountPlay();
+			Console.ReadLine();
+			BlackJackGame BJackGame = new BlackJackGame();
+			BJackGame.BlackJackStart();
 		}
 	}
 }
