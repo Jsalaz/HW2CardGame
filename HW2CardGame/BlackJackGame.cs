@@ -11,12 +11,17 @@ namespace HW2CardGame
 		{
 			compPlayer = new BlackJackHand();
 			humPlayer = new BlackJackHand();
+			BlackJackDeck = new Deck();
+			PopulateDeck();
 		}
 
 		public void BlackJackStart()
 		{
-			BlackJackDeck = new Deck();
-			PopulateDeck();
+			//BlackJackDeck = new Deck();
+			if (BlackJackDeck.GetCardsRemaining() < 4)
+			{
+				BlackJackDeck.RestoreDeck();
+			}
 			BlackJackDeck.Shuffle();
 			// deals two cards to each player
 			humPlayer.AddCard(BlackJackDeck.DealOne());
@@ -28,10 +33,26 @@ namespace HW2CardGame
 
 			if (HumanTurn() <= 21)
 			{
-				Console.WriteLine("Computer's Turn!");
-				//Console.ReadLine();
+				Console.WriteLine("\nComputer's Turn!");
 				ComputerTurn();
+				if (humPlayer.CompareTo(compPlayer) == 1)
+				{
+					Console.WriteLine("You are the winner: Your Score {0} || Dealers' score {1}", humPlayer.EvaluateHand(), compPlayer.EvaluateHand());
+				}
+				else if (humPlayer.CompareTo(compPlayer) == -1)
+				{
+					Console.WriteLine("Dealer is the winner: Your Score {0} || Dealers' score {1}", humPlayer.EvaluateHand(), compPlayer.EvaluateHand());
+				}
+				else if (humPlayer.CompareTo(compPlayer) == 0)
+				{
+					Console.WriteLine("Game is a draw (push): Your Score {0} || Dealers' score {1}", humPlayer.EvaluateHand(), compPlayer.EvaluateHand());
+				}
 			}
+
+			Console.WriteLine("There are {0} left in the deck of {1} cards", BlackJackDeck.GetCardsRemaining(), BlackJackDeck.GetDeckSize());
+			humPlayer.DiscardHand();
+			compPlayer.DiscardHand();
+			Console.ReadLine();
 		}
 
 		public void ComputerTurn()
@@ -43,7 +64,7 @@ namespace HW2CardGame
 			do
 			{
 
-				if (compPlayer.EvaluateHand() < 17)
+				if (compPlayer.EvaluateHand() < 17 && !BlackJackDeck.IsEmpty())
 				{
 					compPlayer.AddCard(BlackJackDeck.DealOne());
 					Console.WriteLine("Dealer has been dealt the {0}", compPlayer.GetCardAtIndex(cCount++));
@@ -68,7 +89,7 @@ namespace HW2CardGame
 			{
 				Console.WriteLine("Hit or Stand (H/S)?");
 				input = Convert.ToString(Console.ReadLine());
-				if ((input == "h") || (input == "H"))
+				if (((input == "h") || (input == "H")) && !BlackJackDeck.IsEmpty() )
 				{
 					humPlayer.AddCard(BlackJackDeck.DealOne());
 					Console.WriteLine("You have been dealt the {0}", humPlayer.GetCardAtIndex(hCount++));

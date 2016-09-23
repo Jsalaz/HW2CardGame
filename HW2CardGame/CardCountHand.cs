@@ -31,7 +31,7 @@ namespace HW2CardGame
 		{
 			int sum = 0;
 			int curr;
-			foreach (Card c in this.myHand)
+			foreach (Card c in myHand)
 			{
 				curr = Rank.VALUES.IndexOf(c.GetRank());
 				if (curr < 9) //for 2-10 cards

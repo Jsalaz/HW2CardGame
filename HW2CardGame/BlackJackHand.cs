@@ -15,9 +15,10 @@ namespace HW2CardGame
 		{
 			int currentPlayer = EvaluateHand();
 			int otherPlayer = OtherHandObject.EvaluateHand();
-			if (currentPlayer > otherPlayer)
+			//if (currentPlayer > 21){
+			if (currentPlayer > otherPlayer && !(currentPlayer > 21))
 			{ return 1; }
-			else if (currentPlayer < otherPlayer)
+			else if (currentPlayer < otherPlayer && !(otherPlayer >21))
 			{ return -1; }
 			else
 			{ return 0; }
@@ -28,7 +29,7 @@ namespace HW2CardGame
 		{
 			int sum = 0;
 			int curr;
-			foreach (Card c in this.myHand)
+			foreach (Card c in myHand)
 			{
 				curr = Rank.VALUES.IndexOf(c.GetRank());
 				if (curr < 9) //for 2-10 cards

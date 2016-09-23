@@ -11,12 +11,17 @@ namespace HW2CardGame
 		{
 			player1 = new CardCountHand();
 			player2 = new CardCountHand();
+			CardCountDeck = new Deck();
+			PopulateDeck();
 		}
 
 		public void CardCountPlay()
 		{
-			CardCountDeck = new Deck();
-			PopulateDeck();
+			if (CardCountDeck.GetCardsRemaining() < 16)
+			{
+				CardCountDeck.RestoreDeck();
+				Console.WriteLine("Low Cards: Restoring Deck");
+			}
 			CardCountDeck.Shuffle();
 			// canpossibly move to another method
 			for (int x = 0; x < 8; x++)
@@ -51,7 +56,6 @@ namespace HW2CardGame
 				{
 					Card Test = new Card(s, r);
 					CardCountDeck.AddCard(Test);
-					//Console.WriteLine(Test);
 				}
 			}
 		}
