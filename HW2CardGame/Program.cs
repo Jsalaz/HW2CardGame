@@ -6,11 +6,12 @@ namespace HW2CardGame
 	{
 		public static void Main(string[] args)
 		{
-			CardCountGame CCGame = new CardCountGame();
+			/*CardCountGame CCGame = new CardCountGame();
 			CCGame.CardCountPlay();
-			Console.ReadLine();
+			Console.ReadLine();*/
 			BlackJackGame BJackGame = new BlackJackGame();
 			BJackGame.BlackJackStart();
+			Console.ReadLine();
 		}
 	}
 }
