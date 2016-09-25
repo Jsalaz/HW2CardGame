@@ -11,6 +11,8 @@ namespace HW2CardGame
 			BlackJackGame BJackGame = new BlackJackGame();
 			do
 			{
+				Console.WriteLine("Each Card Game has its own deck to pull cards from.");
+				Console.WriteLine("Once the deck is low on card it will replenish and reshuffle");
 				Console.WriteLine("\nPick from the Menu:");
 				Console.WriteLine("1: CardCount");
 				Console.WriteLine("2: BlackJack");
@@ -38,7 +40,6 @@ namespace HW2CardGame
 				}
 			} while (input != "3");
 			Console.ReadLine();
-
 		}
 	}
 }

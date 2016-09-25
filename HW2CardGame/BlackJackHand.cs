@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using System.Collections.Generic;
 
 namespace HW2CardGame
@@ -15,10 +15,10 @@ namespace HW2CardGame
 		{
 			int currentPlayer = EvaluateHand();
 			int otherPlayer = OtherHandObject.EvaluateHand();
-			//if (currentPlayer > 21){
-			if (currentPlayer > otherPlayer && !(currentPlayer > 21))
+
+			if (currentPlayer > otherPlayer || (otherPlayer > 21))
 			{ return 1; }
-			else if (currentPlayer < otherPlayer && !(otherPlayer >21))
+			else if (otherPlayer > currentPlayer || (currentPlayer > 21))
 			{ return -1; }
 			else
 			{ return 0; }

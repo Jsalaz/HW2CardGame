@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using System.Collections.Generic;
 
 namespace HW2CardGame
@@ -6,7 +6,7 @@ namespace HW2CardGame
 
 	public class Rank
 	{
-		public enum cardRank
+		private enum cardRank
 		{ TWO = 2, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE };
 
 		//static public int DOS, TRES, CUATRO, CINCO, SEIS, SIETE, OCHO, NUEVE, DIES, SOTA, REINA, REY;
@@ -18,7 +18,7 @@ namespace HW2CardGame
 
 		private cardRank myRank;
 
-		//alternative method loads values of 13 cards possible delete
+		//alternative method loads values of 13 cards
 		//bam!! static constructor
 		static Rank()
 		{
@@ -46,17 +46,13 @@ namespace HW2CardGame
 			rSymbol = InitSymbol();
 		}
 
-		public override string ToString()
-		{
-			return GetName();
-			//return "RankName: " + GetName() + ", RankValue: " + GetValue() + ", RankSymbol: " + GetSymbol() ;
-		}
-
+		//3
 		public string GetName()
 		{
 			return rName;
 		}
 
+		//2
 		public string GetSymbol()
 		{
 			return rSymbol;
@@ -91,6 +87,7 @@ namespace HW2CardGame
 			return rValue;
 		}
 
+		//1
 		public int CompareTo(Rank OtherRankObject)
 		{
 			if (VALUES.IndexOf(this) == VALUES.IndexOf(OtherRankObject))
@@ -100,20 +97,12 @@ namespace HW2CardGame
 			else
 			{ return -1; }
 		}
+
+		//4
+		public override string ToString()
+		{
+			return (GetName());
+			//return "RankName: " + GetName() + ", RankValue: " + GetValue() + ", RankSymbol: " + GetSymbol() ;
+		}
 	}
 }
-/*//first Test with Random value to delete soon
-public Rank()
-{
-	//Creates an Enum based on a random number mod 13
-	//			works
-	myRank = ((cardRank)(rRandom.Next() % 13));
-	//stores the name of the String Enum to rName
-	//			works great
-	rName = myRank.ToString();
-	//stores the value of the index from the enum
-	//			rValue = GetValue();
-	rValue = (int)myRank	;
-	rSymbol = InitSymbol();
-}
-*/

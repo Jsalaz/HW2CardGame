@@ -17,8 +17,10 @@ namespace HW2CardGame
 
 		public void BlackJackStart()
 		{
-			//BlackJackDeck = new Deck();
-			if (BlackJackDeck.GetCardsRemaining() < 4)
+			//checks if you are short on cards. 
+			//If you are short then the used cards are restored into the deck 
+			//and the deck is shuffled
+			if (BlackJackDeck.GetCardsRemaining() < 10)
 			{
 				BlackJackDeck.RestoreDeck();
 			}
@@ -61,9 +63,9 @@ namespace HW2CardGame
 			Console.WriteLine("Dealer has been dealt the {0}", compPlayer.GetCardAtIndex(cCount++));
 			Console.WriteLine("Dealer has been dealt the {0}", compPlayer.GetCardAtIndex(cCount++));
 			Console.WriteLine("Dealer's Score is {0}", compPlayer.EvaluateHand());
-			do
-			{
 
+			while (compPlayer.EvaluateHand() < 17 && (compPlayer.EvaluateHand() < humPlayer.EvaluateHand()))
+			{
 				if (compPlayer.EvaluateHand() < 17 && !BlackJackDeck.IsEmpty())
 				{
 					compPlayer.AddCard(BlackJackDeck.DealOne());
@@ -75,7 +77,7 @@ namespace HW2CardGame
 					Console.WriteLine("Dealer is over 21: You Win!!");
 					break;
 				}
-			} while (compPlayer.EvaluateHand()< 17);
+			}
 		}
 
 		public int HumanTurn()
@@ -118,6 +120,7 @@ namespace HW2CardGame
 					}
 				}
 			}
+
 		}
 	}
 }

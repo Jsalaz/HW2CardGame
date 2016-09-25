@@ -1,4 +1,4 @@
-﻿using System;
+﻿//using System;
 using System.Collections.Generic;
 
 namespace HW2CardGame
@@ -9,11 +9,11 @@ namespace HW2CardGame
 		public enum SuitType
 		{ CLUBS, DIAMONDS, HEARTS, SPADES }
 
-		public SuitType mySuit;
+		private SuitType mySuit;
 
-		public string sName;
-		public string sSymbol;
-		public int sValue;
+		private string sName;
+		private string sSymbol;
+		private int sValue;
 
 		static Suit()
 		{
@@ -39,6 +39,8 @@ namespace HW2CardGame
 			sSymbol = InitSymbol();
 		}
 
+
+		//3
 		public string GetName()
 		{
 			return sName;
@@ -72,11 +74,13 @@ namespace HW2CardGame
 			}
 		}
 
+		//2
 		public string GetSymbol()
 		{
 			return sSymbol;
 		}
 
+		//1
 		public int CompareTo(Suit OtherSuitObject)
 		{
 			if (VALUES.IndexOf(this) == VALUES.IndexOf(OtherSuitObject))
@@ -92,6 +96,7 @@ namespace HW2CardGame
 			return sValue;
 		}
 
+		//4
 		public override string ToString()
 		{
 			return GetName();
@@ -99,12 +104,3 @@ namespace HW2CardGame
 		}
 	}
 }
-
-		/*
-		public Suit()//random suit for a card with default suit rank C>D>H>S
-		{
-			mySuit = ((SuitType)(sRandom.Next() % 4));
-			sName = mySuit.ToString();
-			sValue = (int)mySuit;
-			sSymbol = InitSymbol();
-		}*/

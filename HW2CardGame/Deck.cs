@@ -7,9 +7,9 @@ namespace HW2CardGame
 	{
 		private int _topOfDeck;
 		private int _deckSize;
-		static Random shuffler = new Random();
+		private static Random shuffler = new Random();
 
-		public List<Card> DeckOfCards = new List<Card>();
+		public List<Card> DeckOfCards;
 		public List<Card> NotInDeck = new List<Card>();
 
 		public Deck()
@@ -19,6 +19,7 @@ namespace HW2CardGame
 			_deckSize = 0;
 		}
 
+		//1
 		public void AddCard(Card aCard)
 		{
 			DeckOfCards.Add(aCard);
@@ -26,6 +27,7 @@ namespace HW2CardGame
 			_deckSize++;
 		}
 
+		//2
 		public Card DealOne()
 		{
 			Card topCard = DeckOfCards[_topOfDeck];
@@ -34,16 +36,19 @@ namespace HW2CardGame
 			return topCard;
 		}
 
+		//3
 		public int GetCardsRemaining()
 		{
 			return _topOfDeck+1;
 		}
 
+		//4
 		public int GetDeckSize()
 		{
 			return _deckSize;
 		}
 
+		//5
 		public bool IsEmpty()
 		{
 			if (DeckOfCards.Count == 0)
@@ -51,6 +56,7 @@ namespace HW2CardGame
 			return false;
 		}
 
+		//6
 		public void Shuffle()
 		{
 			//Fisher-Yates Shuffle Algorithm
@@ -63,6 +69,7 @@ namespace HW2CardGame
 			}
 		}
 
+		//7
 		public void RestoreDeck()
 		{
 			foreach (Card s in NotInDeck)
@@ -72,15 +79,6 @@ namespace HW2CardGame
 				_topOfDeck++;
 			}
 			NotInDeck.Clear();
-		}
-
-		public override string ToString()
-		{
-			foreach (Card s in DeckOfCards)
-			{
-				Console.WriteLine(s);
-			}
-			return "";
 		}
 	}
 }

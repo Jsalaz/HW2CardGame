@@ -59,7 +59,5 @@ namespace HW2CardGame
 				}
 			}
 		}
-
-
 	}
 }
