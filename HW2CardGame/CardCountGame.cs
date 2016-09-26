@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*********************************
+ * Jorge Salazar
+ * CSC 496
+ * Professor R. Burns
+ * HW2: CardGame
+ * *****************************/
+
+using System;
 namespace HW2CardGame
 {
 	public class CardCountGame
@@ -49,7 +56,21 @@ namespace HW2CardGame
 
 		public void PopulateDeck()
 		{
-			//populates deck
+			/**
+			 * Sets rank for CardCount
+			 * Made particularlly to work if CardCount was its individual game
+			 * CardCountHand.EvaluateHand would have to be modified to reflec
+			 * the change in index values. Not implemented for the project.
+			 * */
+			/*
+			for (int i = 2; i < 15; i++)
+			{
+				Rank.VALUES.Add(new Rank(i));
+				if (i == 14)
+				{ Rank.VALUES.Insert(0, new Rank(i); }
+			}
+			*/
+			//populates deck 52 cards
 			foreach (Rank r in Rank.VALUES)
 			{
 				foreach (Suit s in Suit.VALUES) //creates all cards in deck

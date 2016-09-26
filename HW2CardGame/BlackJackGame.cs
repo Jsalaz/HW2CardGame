@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*********************************
+ * Jorge Salazar
+ * CSC 496
+ * Professor R. Burns
+ * HW2: CardGame
+ * *****************************/
+
+using System;
 namespace HW2CardGame
 {
 	public class BlackJackGame
@@ -108,6 +115,17 @@ namespace HW2CardGame
 
 		public void PopulateDeck()
 		{
+			/**
+			 * Sets rank for BlackJack
+			 * Made particularlly to work if CardCount was its individual game
+			 * CardCountHand.EvaluateHand would have to be modified to reflec
+			 * the change in index values. Not implemented for the project.
+			 * 
+			for (int i = 2; i < 15; i++)
+			{
+				Rank.VALUES.Add(new Rank(i));
+			}
+			*/
 			//populates deck with 6 decks
 			for (int q = 0; q < 6; q++)
 			{

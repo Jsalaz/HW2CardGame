@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*********************************
+ * Jorge Salazar
+ * CSC 496
+ * Professor R. Burns
+ * HW2: CardGame
+ * *****************************/
+
+using System;
 
 namespace HW2CardGame
 {
@@ -12,7 +19,7 @@ namespace HW2CardGame
 			do
 			{
 				Console.WriteLine("Each Card Game has its own deck to pull cards from.");
-				Console.WriteLine("Once the deck is low on card it will replenish and reshuffle");
+				Console.WriteLine("Once the deck is low on cards it will replenish and reshuffle");
 				Console.WriteLine("\nPick from the Menu:");
 				Console.WriteLine("1: CardCount");
 				Console.WriteLine("2: BlackJack");

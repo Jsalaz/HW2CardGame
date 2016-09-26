@@ -1,4 +1,11 @@
-﻿//using System;
+﻿/*********************************
+ * Jorge Salazar
+ * CSC 496
+ * Professor R. Burns
+ * HW2: CardGame
+ * *****************************/
+
+//using System;
 using System.Collections.Generic;
 
 namespace HW2CardGame
@@ -38,7 +45,6 @@ namespace HW2CardGame
 			sValue = suitVal;
 			sSymbol = InitSymbol();
 		}
-
 
 		//3
 		public string GetName()
