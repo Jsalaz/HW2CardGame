@@ -6,12 +6,12 @@ CSC 496: Large Scale Systems
 Video Game Design
 Homework 2: C# Object Oriented Deck of Cards with BlackJack and CardCount games
 
-This was aour second C# assignment and it was meant to test our capabilities with 
+This was our second C# assignment and it was meant to test our capabilities with 
 Object Oriented Abstraction.
 
 Additionally I worked with git for version control and NUnit for testing
 
-My implementation differed from other by my use of Emuns to define the card rank and suits.
+My implementation differed from others by my use of Emuns to define the card rank and suits. Others focused more primitive variable to define card suit and rank.
 
 List of Classes:
 
